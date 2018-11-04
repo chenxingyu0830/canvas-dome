@@ -3,8 +3,18 @@ var context = yyy.getContext('2d');
 var lineWidth = 5
 var colorsAndSizes = document.getElementById('colorsAndSizes')
 
+canvasLoad()
 autoSetCanvasSize(yyy)
 listenToUser(yyy)
+
+
+
+function canvasLoad(){
+  yyy.setAttribute('width', window.innerWidth)
+  yyy.setAttribute('height', window.innerHeight)
+  context.fillStyle = 'white'
+  context.fillRect(0,0,yyy.width,yyy.height)
+}
 
 /*******画笔 橡皮 清空 保存 */
 var eraserEnabled = false
@@ -13,7 +23,7 @@ pen.onclick = function(){
   pen.classList.add('active')
   eraser.classList.remove('active')
   if (colorsAndSizes.style.display === "none") {
-    colorsAndSizes.style.display = "block";
+    colorsAndSizes.style.display = "block"
   }
 }
 eraser.onclick = function(){
@@ -24,17 +34,24 @@ eraser.onclick = function(){
 
 }
 clear.onclick = function(){
-  context.clearRect(0, 0, yyy.width, yyy.height);
+  context.clearRect(0, 0, yyy.width, yyy.height)
 }
-download.onclick = function(){
-  var url = yyy.toDataURL("image/png")
-  var a = document.createElement('a')
-  document.body.appendChild(a)
-  a.href = url
-  a.download = 'canvas图片'
-  a.target = '_blank'
-  a.click()
+// download.onclick = function(){
+//   var url = yyy.toDataURL("image/png")
+//   var a = document.createElement('a')
+//   document.body.appendChild(a)
+//   a.href = url
+//   a.download = 'canvas图片'
+//   a.target = '_blank'
+//   a.click()
+// }
+function download(){
+  var download = document.getElementById("downloader");
+  var image = document.getElementById("xxx").toDataURL("image/png")
+              .replace("image/png", "image/octet-stream");
+  download.setAttribute("href", image);
 }
+
 /***画笔***/
 thin.onclick = function(){
   lineWidth = 5

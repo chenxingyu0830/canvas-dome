@@ -9,6 +9,9 @@ ul,ol{list-style:none}
 #xxx{
   background: white;
   display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 body{
@@ -28,6 +31,7 @@ body{
   height: 1.5em;
   transition: all 0.3s;  
   margin: 0 10px;
+  background: white;
 }
 
 .actions svg.active{
@@ -81,6 +85,7 @@ body{
   height: 1.5em;
   margin: 15px 10px;
   transition: all 0.3s;
+  background: white;
 }
 .sizes> li >svg.active{
   fill: BlueViolet;

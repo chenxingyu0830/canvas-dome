@@ -1,11 +1,11 @@
 var yyy = document.getElementById('xxx');
 var context = yyy.getContext('2d');
+var lineWidth = 5
 
 autoSetCanvasSize(yyy)
-
 listenToUser(yyy)
 
-
+/*******画笔 橡皮 清空 保存 */
 var eraserEnabled = false
 pen.onclick = function(){
   eraserEnabled =false
@@ -17,7 +17,33 @@ eraser.onclick = function(){
   eraser.classList.add('active')
   pen.classList.remove('active')
 }
+clear.onclick = function(){
+  context.clearRect(0, 0, yyy.width, yyy.height);
+}
+download.onclick = function(){
+  var url = yyy.toDataURL("image/png")
+  var a = document.createElement('a')
+  document.body.appendChild(a)
+  a.href = url
+  a.download = 'canvas图片'
+  a.target = '_blank'
+  a.click()
+}
+/***画笔***/
+thin.onclick = function(){
+  lineWidth = 5
+  thin.classList.add('active')
+  thick.classList.remove('active')
+}
+thick.onclick = function(){
+  lineWidth = 10
+  thick.classList.add('active')
+  thin.classList.remove('active')
+}
 
+
+
+/*****颜色 */
 black.onclick = function(){
   context.strokeStyle = 'black'
   black.classList.add('active')
@@ -47,6 +73,8 @@ blue.onclick = function(){
   black.classList.remove('active')
 }
 
+
+
 /******/
 
 function autoSetCanvasSize(canvas) {
@@ -74,7 +102,7 @@ function drawCircle(x, y, radius) {
 function drawLine(x1, y1, x2, y2) {
   context.beginPath();
   context.moveTo(x1, y1) // 起点
-  context.lineWidth = 5
+  context.lineWidth = lineWidth
   context.lineTo(x2, y2) // 终点
   context.stroke()
   context.closePath()

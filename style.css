@@ -31,14 +31,15 @@ html{
   transition: all 0.3s;  
   margin: 0 10px;
 }
+
 .actions svg.active{
-  fill: red;
+  fill: BlueViolet;
   transform: scale(1.3);
 }
 .colors{
   position: fixed;
-  top: 40px;
-  left: 21px;
+  top: 50px;
+  left: 10px;
 }
 .colors> li{
   width: 20px;
@@ -67,4 +68,24 @@ html{
 }
 .colors> li.blue{
   background: blue;
+}
+
+.sizes {
+  position: fixed;
+  right: 10px;
+  top: 0px;
+}
+.sizes > li{
+  margin: 15px 0;
+  transition: all 0.3s;
+}
+.sizes> li >svg{
+  width: 1.5em;
+  height: 1.5em;
+  margin: 0 10px;
+  transition: all 0.3s;
+}
+.sizes> li >svg.active{
+  fill: BlueViolet;
+  transform: scale(1.3);
 }

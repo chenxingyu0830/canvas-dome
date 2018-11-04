@@ -1,6 +1,6 @@
 var yyy = document.getElementById('xxx');
 var context = yyy.getContext('2d');
-var lineWidth = 5
+var lineWidth = 2
 var colorsAndSizes = document.getElementById('colorsAndSizes')
 
 canvasLoad()
@@ -36,30 +36,25 @@ eraser.onclick = function(){
 clear.onclick = function(){
   context.clearRect(0, 0, yyy.width, yyy.height)
 }
-// download.onclick = function(){
-//   var url = yyy.toDataURL("image/png")
-//   var a = document.createElement('a')
-//   document.body.appendChild(a)
-//   a.href = url
-//   a.download = 'canvas图片'
-//   a.target = '_blank'
-//   a.click()
-// }
-function download(){
-  var download = document.getElementById("downloader");
-  var image = document.getElementById("xxx").toDataURL("image/png")
-              .replace("image/png", "image/octet-stream");
-  download.setAttribute("href", image);
+download.onclick = function(){
+  var url = yyy.toDataURL("image/png")
+  var a = document.createElement('a')
+  document.body.appendChild(a)
+  a.href = url
+  a.download = 'canvas图片'
+  a.target = '_blank'
+  a.click()
 }
+
 
 /***画笔***/
 thin.onclick = function(){
-  lineWidth = 5
+  lineWidth = 2
   thin.classList.add('active')
   thick.classList.remove('active')
 }
 thick.onclick = function(){
-  lineWidth = 10
+  lineWidth = 5
   thick.classList.add('active')
   thin.classList.remove('active')
 }

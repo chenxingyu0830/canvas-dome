@@ -1,6 +1,11 @@
+document.body.ontouchstart = function(eee){
+  eee.preventDefault()
+}
+
 var yyy = document.getElementById('xxx');
 var context = yyy.getContext('2d');
 var lineWidth = 5
+var colorsAndSizes = document.getElementById('colorsAndSizes')
 
 autoSetCanvasSize(yyy)
 listenToUser(yyy)
@@ -8,14 +13,19 @@ listenToUser(yyy)
 /*******画笔 橡皮 清空 保存 */
 var eraserEnabled = false
 pen.onclick = function(){
-  eraserEnabled =false
+  eraserEnabled = false
   pen.classList.add('active')
   eraser.classList.remove('active')
+  if (colorsAndSizes.style.display === "none") {
+    colorsAndSizes.style.display = "block";
+  }
 }
 eraser.onclick = function(){
-  eraserEnabled =true
+  eraserEnabled = true
   eraser.classList.add('active')
   pen.classList.remove('active')
+  colorsAndSizes.style.display = "none";
+
 }
 clear.onclick = function(){
   context.clearRect(0, 0, yyy.width, yyy.height);

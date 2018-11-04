@@ -16,14 +16,12 @@ body{
   overflow: hidden;
 }
 
-html{
-}
-
 .actions{
   position: fixed;
   top: 0;
   left: 0;
   padding: 15px;
+  
 }
 .actions svg{
   width: 1.5em;
@@ -38,14 +36,14 @@ html{
 }
 .colors{
   position: fixed;
-  top: 50px;
-  left: 10px;
+  top: 5px;
+  right: 64px;
 }
 .colors> li{
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  margin: 10px 0;
+  margin: 10px 0px;
   box-shadow: 0 0 3px rgba(0,0,0,0.5);
   transition: all 0.3s;
 }
@@ -76,13 +74,12 @@ html{
   top: 0px;
 }
 .sizes > li{
-  margin: 15px 0;
   transition: all 0.3s;
 }
 .sizes> li >svg{
   width: 1.5em;
   height: 1.5em;
-  margin: 0 10px;
+  margin: 15px 10px;
   transition: all 0.3s;
 }
 .sizes> li >svg.active{

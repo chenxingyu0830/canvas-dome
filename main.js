@@ -3,18 +3,13 @@ var context = yyy.getContext('2d');
 var lineWidth = 2
 var colorsAndSizes = document.getElementById('colorsAndSizes')
 
-canvasLoad()
+
 autoSetCanvasSize(yyy)
 listenToUser(yyy)
+canvasLoad()
 
 
 
-function canvasLoad(){
-  yyy.setAttribute('width', window.innerWidth)
-  yyy.setAttribute('height', window.innerHeight)
-  context.fillStyle = 'white'
-  context.fillRect(0,0,yyy.width,yyy.height)
-}
 
 /*******画笔 橡皮 清空 保存 */
 var eraserEnabled = false
@@ -30,7 +25,7 @@ eraser.onclick = function(){
   eraserEnabled = true
   eraser.classList.add('active')
   pen.classList.remove('active')
-  colorsAndSizes.style.display = "none";
+  colorsAndSizes.style.display = "none"
 
 }
 clear.onclick = function(){
@@ -217,4 +212,11 @@ function listenToUser(canvas) {
   }
 
 
+}
+
+function canvasLoad(){
+  yyy.setAttribute('width', window.innerWidth)
+  yyy.setAttribute('height', window.innerHeight)
+  context.fillStyle = 'white'
+  context.fillRect(0,0,yyy.width,yyy.height)
 }
